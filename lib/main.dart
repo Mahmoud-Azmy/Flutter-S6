@@ -10,6 +10,9 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ProfileCard());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ProfileCardScreen(),
+    );
   }
 }

@@ -1,66 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_s6/card_info_widget.dart';
 
-class ProfileCard extends StatelessWidget {
-  const ProfileCard({super.key});
+class ProfileCardScreen extends StatelessWidget {
+  const ProfileCardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 151, 187, 216),
+      backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
-        title: Text(
-          'Profile Card',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-        ),
-        centerTitle: true,
+        title: const Text('Profile Card'),
         backgroundColor: Colors.blue,
+        centerTitle: true,
       ),
       body: Center(
         child: Card(
           elevation: 5,
-          child: SizedBox(
-            height: 350,
+          child: Container(
             width: 300,
+            padding: const EdgeInsets.all(20),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(height: 20),
-                CircleAvatar(radius: 40),
-                SizedBox(height: 10),
-                Text(
+                // Profile image placeholder
+                CircleAvatar(radius: 40, backgroundColor: Colors.brown[100]),
+                const SizedBox(height: 15),
+                // Name
+                const Text(
                   'M Azmy',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text('FLutter Developer'),
 
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Card(
-                        elevation: 5,
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [Text('5'), Text('Projects')],
-                          ),
-                        ),
+                // Subtitle
+                const Text(
+                  'Flutter Developer',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+                const SizedBox(height: 20),
+
+                // Projects and Followers Row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CardInfo(number: '5', label: 'projects'),
+                    CardInfo(number: '7', label: 'Followers'),
+                  ],
+                ),
+                SizedBox(height: 15),
+                // Follow button
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      SizedBox(width: 10),
-                      Card(
-                        elevation: 5,
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [Text('5'), Text('Projects')],
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
+                    child: const Text(
+                      'Follow',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ],
