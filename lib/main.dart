@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_s6/profile_card.dart';
+import 'package:flutter_s6/auth/login_screen.dart';
+
 
 void main() {
   runApp(HomeWidget());
@@ -12,7 +13,7 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfileCardScreen(),
+      home: LoginView(),
     );
   }
 }

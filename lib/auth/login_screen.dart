@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+   bool isPasswordVisible = false;
+  @override
   Widget build(BuildContext context) {
+   
    
     return  Scaffold(
       backgroundColor: const Color(0xFFB3E5FC),
@@ -66,7 +73,7 @@ class LoginView extends StatelessWidget {
                 ),
              const SizedBox(height: 5,),
               TextField(
-                obscureText: true,
+                obscureText: isPasswordVisible,
                 decoration: InputDecoration(
                   prefixIcon:const Icon(
                     Icons.lock_outline,
@@ -74,12 +81,18 @@ class LoginView extends StatelessWidget {
                     ),
                   suffixIcon: IconButton(
                     onPressed: (){
-                     
+                      // isPasswordVisible=!isPasswordVisible;
+                      // print(isPasswordVisible);
+                      setState(() {
+                        isPasswordVisible = !isPasswordVisible;
+                      });
+                      
                     },
-                    icon:const Icon(
+                    icon:  Icon(
                       Icons.visibility_off, 
                       color: Colors.grey,),
-                    ),
+                      ),
+                    
                   hintText: 'Enter your Password',
                   hintStyle:const TextStyle(
                     color: Colors.grey
@@ -93,6 +106,30 @@ class LoginView extends StatelessWidget {
                 ),
               ),
             const SizedBox(height: 20,),
+             SizedBox(
+              width: double.infinity,
+               child: ElevatedButton(
+                        onPressed: () {
+                         
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF2196F3),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+             ),
             ],
           ) ,
           
