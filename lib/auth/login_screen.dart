@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_s6/auth/register_screen.dart';
+import 'package:flutter_s6/auth/sign_up.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -47,8 +47,11 @@ class _LoginViewState extends State<LoginView> {
                const SizedBox(height: 5,),
                 TextFormField(
                   validator: (value) {
-                    if(value==null || value.isEmpty){
-                      return 'Please a valid email';
+                    if( value==null ||
+                        value.isEmpty||
+                        value.length<6 || 
+                       !value.contains('@')){
+                      return 'Please enter a valid email';
                     }
                     return null;
                   },
@@ -80,7 +83,13 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                const SizedBox(height: 5,),
-                TextField(
+                TextFormField(
+                  validator: (value){
+                    if(value!.length<6){
+                      return 'Password must be at least 6 characters long';
+                    }
+                    return null;
+                  },
                   obscureText: isPasswordVisible,
                   decoration: InputDecoration(
                     prefixIcon:const Icon(
@@ -118,14 +127,14 @@ class _LoginViewState extends State<LoginView> {
                  child: ElevatedButton(
                           onPressed: () {
                               if (_formKey.currentState!.validate()){
-                                     Navigator.pushReplacement(
-                                      context, 
-                                      MaterialPageRoute(
-                                        builder: (context){
-                                          return const HomeView();
-                                        },
-                                      ),
-                            );
+                                 Navigator.pushReplacement(
+                                  context, 
+                                  MaterialPageRoute(
+                                    builder: (context){
+                                      return const HomeView();
+                                    },
+                                  ),
+                               );
                               }
                           },
                           style: ElevatedButton.styleFrom(
@@ -161,7 +170,7 @@ class _LoginViewState extends State<LoginView> {
                         context,
                         MaterialPageRoute(
                           builder: (context){
-                            return const RegisterScreen();
+                            return const SignupScreen();
                           },
                         ),
                       );
@@ -179,6 +188,22 @@ class _LoginViewState extends State<LoginView> {
           ) ,
           
         ),
+      ),
+    );
+  }
+}
+
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home Screen'),
+      ),
+      body: const Center(
+        child: Text('Welcome to the Home Screen!'),
       ),
     );
   }

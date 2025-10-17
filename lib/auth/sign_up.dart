@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_s6/auth/login_screen.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class RegisterScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16)
                           )
                         ),
-                        child: Text('Register',
+                        child: Text('Sign Up',
                         style: TextStyle(
                           
                           fontSize: 18,
@@ -128,22 +128,6 @@ class RegisterScreen extends StatelessWidget {
          ),
        ),
       ) ,
-    );
-  }
-}
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Home Screen',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold
-        ),),
-      ),
     );
   }
 }
