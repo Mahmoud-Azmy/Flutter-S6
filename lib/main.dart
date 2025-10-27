@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_s6/profile_card.dart';
+import 'package:flutter_s6/bottom_navigation_bar.dart';
 
 void main() {
   runApp(HomeWidget());
@@ -12,7 +12,7 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfileCardScreen(),
+      home: BottomNavigationBarTest(),
     );
   }
 }
