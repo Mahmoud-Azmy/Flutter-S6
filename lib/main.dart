@@ -10,6 +10,6 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeTest());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }
